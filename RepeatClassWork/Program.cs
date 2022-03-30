@@ -24,132 +24,107 @@ namespace ConsoleApp2
             //    Console.WriteLine(ex.Message);
             //}
             #endregion
+                
+            #region CheckTask
+//             Console.WriteLine("Enter Username : ");
+//             string username=Console.ReadLine();
 
-            Console.WriteLine("Enter Username : ");
-            string username=Console.ReadLine();
 
 
-
-            Console.WriteLine("Enter Password : ");
-            string password=Console.ReadLine();
-            while (!User.CheckPassword(password))
-            {
-                Console.WriteLine("Enter Correctly Password:");
-                password = Console.ReadLine();
-            }
-            int role;
-            bool isNum;
+//             Console.WriteLine("Enter Password : ");
+//             string password=Console.ReadLine();
+//             while (!User.CheckPassword(password))
+//             {
+//                 Console.WriteLine("Enter Correctly Password:");
+//                 password = Console.ReadLine();
+//             }
+//             int role;
+//             bool isNum;
            
 
-            do
-            {
-                Console.WriteLine("Server (1. Admin, 2. Member):");
-                string roleStr = Console.ReadLine();
-                isNum = int.TryParse(roleStr, out role);
+//             do
+//             {
+//                 Console.WriteLine("Server (1. Admin, 2. Member):");
+//                 string roleStr = Console.ReadLine();
+//                 isNum = int.TryParse(roleStr, out role);
 
-            } while (!isNum || !Enum.IsDefined(typeof(Server),role));
+//             } while (!isNum || !Enum.IsDefined(typeof(Server),role));
 
-            User user = new User(username, password, (Server)role);
+//             User user = new User(username, password, (Server)role);
 
-            Department department = new Department(3);
+//             Department department = new Department(3);
 
-            bool check = true;
-            do
-            {
+//             bool check = true;
+//             do
+//             {
 
-                Console.WriteLine("-----------------Choose One From The Menu---------------");
-                Console.WriteLine("1. Add Employee");
-                Console.WriteLine("2. Get Employee By Id");
-                Console.WriteLine("3. Get All Employee");
-                Console.WriteLine("0. Quit");
+//                 Console.WriteLine("-----------------Choose One From The Menu---------------");
+//                 Console.WriteLine("1. Add Employee");
+//                 Console.WriteLine("2. Get Employee By Id");
+//                 Console.WriteLine("3. Get All Employee");
+//                 Console.WriteLine("0. Quit");
 
 
-                string choice=Console.ReadLine();
+//                 string choice=Console.ReadLine();
 
-                switch (choice)
-                {
-                 case "1":
+//                 switch (choice)
+//                 {
+//                  case "1":
 
-                        try
-                        {
-                            if (user.RoleEnum == Server.Admin)
-                            {
-                                Console.WriteLine("Enter Name :");
-                                string name = Console.ReadLine();
+//                         try
+//                         {
+//                             if (user.RoleEnum == Server.Admin)
+//                             {
+//                                 Console.WriteLine("Enter Name :");
+//                                 string name = Console.ReadLine();
 
-                                double salary;
-                                bool isDouble;
-                                do
-                                {
-                                    Console.WriteLine("Salary:");
-                                    string salaryStr = Console.ReadLine();
-                                    isDouble = double.TryParse(salaryStr, out salary);
-                                } while (!isDouble);
+//                                 double salary;
+//                                 bool isDouble;
+//                                 do
+//                                 {
+//                                     Console.WriteLine("Salary:");
+//                                     string salaryStr = Console.ReadLine();
+//                                     isDouble = double.TryParse(salaryStr, out salary);
+//                                 } while (!isDouble);
 
-                                Employe employe = new Employe(name, salary);
+//                                 Employe employe = new Employe(name, salary);
 
-                                department.AddEmployes(employe);
-                            }
-                        }
-                        catch (IsNotAdmin ex)
-                        {
+//                                 department.AddEmployes(employe);
+//                             }
+//                         }
+//                         catch (IsNotAdmin ex)
+//                         {
 
-                            Console.WriteLine(ex.Message);
-                        }
+//                             Console.WriteLine(ex.Message);
+//                         }
                        
 
                         
-                        break;
-                    case "2":
-                        Console.WriteLine("Enter ID : ");
-                        int id = Convert.ToInt32(Console.ReadLine());
-                        department.GetEmployeeById(id).ShowInfo();
-                        break;
-                    case "3":
-                        foreach (var item in department.GetAllEmployees())
-                        {
-                            item.ShowInfo();
-                        }
-                        break;
-                    case "0":
-                        check=false;
-                        break;
-                    default:
-                        Console.WriteLine("Wrong Input!!!");
-                        break;
-                }
+//                         break;
+//                     case "2":
+//                         Console.WriteLine("Enter ID : ");
+//                         int id = Convert.ToInt32(Console.ReadLine());
+//                         department.GetEmployeeById(id).ShowInfo();
+//                         break;
+//                     case "3":
+//                         foreach (var item in department.GetAllEmployees())
+//                         {
+//                             item.ShowInfo();
+//                         }
+//                         break;
+//                     case "0":
+//                         check=false;
+//                         break;
+//                     default:
+//                         Console.WriteLine("Wrong Input!!!");
+//                         break;
+//                 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            } while (check);
-
-
-
-
-
-
+//             } while (check);
 
         }
-
+        #endregion
 
         #region Currency Method
         //static double Exchange(Enum currency,double azn )
